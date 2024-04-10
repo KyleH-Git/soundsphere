@@ -4,7 +4,7 @@ searchButtonEl = $('#seachbutton ');
 
 
 
-function handleLyricFetch{
+function handleLyricFetch(){
    
     const songInfo = {
         title: '',
