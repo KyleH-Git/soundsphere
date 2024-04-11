@@ -101,12 +101,12 @@ input{
     transition: all 1s;
 }
 
-.search:hover{
-    width: 330px;
+.search:hover, .open-search{
+    width: 330px !important;
     cursor: pointer;
 }
 
-.search:hover input{
+.search:hover input, .open-search input{
     display: block;
 }
 
