@@ -11,7 +11,6 @@ function handleLyricFetch(){
     let url = `https://genius-song-lyrics1.p.rapidapi.com/search/?q=${userSearch}&per_page=10&page=1`;
     searchBarEl.val('');
     const hasText = searchBarEl.val();
-    console.log(hasText);
     if(hasText){
         searchBarEl.parent().attr('class', 'open-search-bar search-bar');
     }

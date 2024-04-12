@@ -28,7 +28,26 @@
                     </div>
                 </div>
                 <div class="right-side">
-                    <div class="test">
+                  <form id="input-form">
+                    <label for="charts">Select a chart:</label>
+                    <select name="charts" id="charts">
+                      <option value="hot-100">Hot 100</option>
+                      <option value="billboard-200">Billboard 200</option>
+                      <option value="artist-100">Artist 100</option>
+                      <option value="billboard-global-200">Billboard Global 200</option>
+                    </select> 
+
+                    <label for="display-number">Number to display:</label>
+                    <select name="display-number" id="display-number">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select> 
+                    
+                    <input type="submit" id="chartSubmit" value="Submit"/>
+                  </form>
+                    <div id="song-display" class="test">
                         <button class="glow-on-hover" type="button">Open Lyrics</button>
                         <button class="delete-button" type="button">❌</button>
                     </div>
