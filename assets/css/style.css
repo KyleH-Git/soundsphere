@@ -76,7 +76,7 @@ label{
     padding: 5px;
 }
 
-input #search-content{
+input#search-content{
     position: absolute;
     top: 0;
     left: 0;
@@ -478,7 +478,7 @@ li {
     padding: 5px;
 }
 
-input #search-content{
+input#search-content{
     position: absolute;
     top: 0;
     left: 0;
