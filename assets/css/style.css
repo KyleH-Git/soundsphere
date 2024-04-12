@@ -22,7 +22,12 @@ li {
     list-style: none;
 }
 
+label{
+    color: white;
+}
+
 /* header */
+
 
 .header {
     width: 100%;
@@ -71,7 +76,7 @@ li {
     padding: 5px;
 }
 
-input{
+input #search-content{
     position: absolute;
     top: 0;
     left: 0;
@@ -473,7 +478,7 @@ li {
     padding: 5px;
 }
 
-input{
+input #search-content{
     position: absolute;
     top: 0;
     left: 0;
