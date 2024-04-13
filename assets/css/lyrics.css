@@ -6,10 +6,6 @@ a {
     text-decoration: none;
 }
 
-li {
-    list-style: none;
-}
-
 .filler {
     width: 100px;
     height: 100px;
@@ -129,7 +125,7 @@ input{
 
 .search-list {
     border: #333232 5px solid;
-    margin: 60px 300px 30px 300px;
+    margin: 15px 25%;
     border-radius: 10px;
 
 }
@@ -156,6 +152,7 @@ input{
     background-color: #333232;
     padding: 30px;
     color: white;
+    text-align: center;
 }
 
 .lyrics a{
