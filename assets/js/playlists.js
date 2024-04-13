@@ -171,7 +171,7 @@ function displaySongs(){
                     });
                 }
             });
-        }, 5000);           
+        }, 50);           
         });     
         console.log(songList);
         

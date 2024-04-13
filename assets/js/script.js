@@ -10,8 +10,6 @@ function handleBBFetch(event){
     event.preventDefault();
     const userChart = chartEl.find(":selected").val();
     const displayNum = displayEl.find(":selected").val();
-    console.log(userChart);
-    console.log(displayNum);
     songDisplayEl.empty();
     let url = `https://billboard-api5.p.rapidapi.com/api/charts/${userChart}`
 
