@@ -26,7 +26,7 @@ function handleBBFetch(event){
             response.json().then(function (data) {
                 for(i=0; i < displayNum; i++){
                     const songCard = $('<div>');
-                    songCard.attr('class', 'card');
+                    songCard.attr('class', 'card-obj');
 
                     const title = $('<h2 class="title">');
                     title.text('\"'+data.chart.entries[i].title +'\"');
@@ -44,6 +44,7 @@ function handleBBFetch(event){
                     weeksOn.text("Weeks on chart: " + data.chart.entries[i].position.weeksOnChart);
 
                     const addSong = $('<button>');
+                    addSong.attr('class', 'card-btn');
                     addSong.text("Add song");
 
                     songCard.append(title, rank, artist, peak, weeksOn, addSong);

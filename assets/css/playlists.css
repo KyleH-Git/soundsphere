@@ -10,28 +10,26 @@
     border: white 1px solid;
 }
 
-.song-card{
+.card-obj{
     background-color: gray;
     width:fit-content;
     text-align: center;
     padding: 1rem;
     border-radius: 10px;
     border: white 1px solid;
+}
+
+.card-obj:hover {
+    border: black 1px solid;
+    color: black;
+    background-color: rgb(177, 177, 177);
+    cursor: pointer;
 }
 
 .song-name{
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.playlist-card{
-    background-color: gray;
-    width:fit-content;
-    text-align: center;
-    padding: 1rem;
-    border-radius: 10px;
-    border: white 1px solid;
 }
 
 .playlist-display{
@@ -49,6 +47,17 @@
 .playlist-modal{
     background-color: gray;
     color: white;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
+.current-list{
+    color: white;
+    margin: 1rem auto;
+    background-color: gray;
+    width:fit-content;
+    text-align: center;
+    padding: 1rem;
     border-radius: 10px;
     border: white 1px solid;
 }

@@ -34,7 +34,7 @@ function handleLyricFetch(){
             const id = data.hits[0].result.id;
 
             //reassign url for lyric search with genius song id 
-            url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=plain`;
+            url = `https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/?id=${id}&text_format=html`;
 
             //fetch request to genius api to search lyrics for song based on id
             fetch(url, options).then(function (response) {
@@ -46,19 +46,17 @@ function handleLyricFetch(){
 
                         //construct html elements to be put into display element and append them
                         const songCard = $('<div>');
-                        songCard.attr('class', 'card');
+                        songCard.attr('class', 'card-obj');
                         
-                        const title = $('<h3>');
-                        title.text(data.lyrics.tracking_data.title)
+                        const title = $('<h2>');
+                        title.text('\"' + data.lyrics.tracking_data.title + '\"');
 
-                        const artist = $('<p>');
+                        const artist = $('<h3>');
                         artist.text(data.lyrics.tracking_data.primary_artist);
 
-                        const lyrics = $('<div>');
-                        lyrics.text(data.lyrics.lyrics.body.plain);
-
-                        searchResultEl.append(title, artist);
-                        displayEl.append(lyrics);
+                        songCard.append(title, artist);
+                        searchResultEl.append(songCard);
+                        displayEl.append(data.lyrics.lyrics.body.html);
                     
                     });
                 }

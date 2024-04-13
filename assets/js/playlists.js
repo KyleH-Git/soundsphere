@@ -1,6 +1,7 @@
 //grab create new playlist button
 const newPlaylistEl = $('#new-list-btn');
 //grab current playlist display div
+const currentListEl = $('.current-list');
 let currentPlaylistEl = null;
 //grab currently saved playlist div
 const savedPlaylistEl = $('#playlist-display');
@@ -28,8 +29,11 @@ function savePlaylist(playlist){
 }
 
 function selectPlaylist(){
-    savedPlaylistEl.on('click', '.playlist-card', function(event){
+    savedPlaylistEl.on('click', '.card-obj', function(event){
         currentPlaylistEl = $(this).attr('data-playlist-id');
+        const lists = getSavedPlaylist();
+        currentListEl.text("Current Playlist: ");
+        currentListEl.append(lists[currentPlaylistEl].name);
     });
 }
 
@@ -61,7 +65,7 @@ function displayPlaylist(){
 
     playlists.forEach((list, i) => {
         const listDisplay = $('<div>');
-        listDisplay.attr('class', 'playlist-card');
+        listDisplay.attr('class', 'card-obj');
         listDisplay.attr('data-playlist-id', i)
         const listName = $('<h3>');
         listName.text(list.name);
@@ -94,8 +98,7 @@ function displaySong(playlist){
     songDisplayEl.empty();
     playlist.songs.forEach(song => {
         const songCard = $('<div>');
-        songCard.attr('class', 'song-card');
-
+        songCard.attr('class', 'card-obj');
         const title = $('<h3>');
         title.text(song.title);
         const artist = $('<p>');
@@ -148,7 +151,7 @@ function displaySongs(){
                                 response.json().then(function (data) {
                                     song.album = data.song.album.name;
                                     const songCard = $('<div>');
-                                    songCard.attr('class', 'song-card');
+                                    songCard.attr('class', 'card-obj');
 
                                     const songTitle = $('<h3>');
                                     songTitle.text(song.title);

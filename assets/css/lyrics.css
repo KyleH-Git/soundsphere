@@ -47,6 +47,15 @@ header .dropdown{
     border: 1px white;
 }
 
+.card-obj{
+    background-color: gray;
+    width:fit-content;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
 /* Dropdown menu background color*/
 .dropdown .dropdown-menu {     
     background-color: darkgray;  
@@ -134,6 +143,8 @@ input{
     background-color: #333232;
     padding: 30px;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
 /* lyrics */
@@ -144,5 +155,10 @@ input{
     border-radius: 10px;
     background-color: #333232;
     padding: 30px;
+    color: white;
+}
+
+.lyrics a{
+    text-decoration: none;
     color: white;
 }

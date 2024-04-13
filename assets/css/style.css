@@ -89,6 +89,15 @@ header .dropdown{
     border: black 1px solid;
 }
 
+.card-obj{
+    background-color: gray;
+    width:fit-content;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
 
 /* playlist */
    
