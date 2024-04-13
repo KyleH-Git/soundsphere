@@ -9,7 +9,8 @@
 </head>
 <body>
     
-    <header class="header-logo">
+    <header>
+        <div class="filler"></div>
         <a class="soundsphere" href="./index.html">SoundSphere</a>
         <div class="dropdown show">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>                
@@ -21,32 +22,25 @@
     </header>
 
     <div class="main">
-        <div class="left-side">
-            <div class="my-library">
-                <button class="playlist-hover" type="button">Playlist</button>
-                <button class="add-playlist-hover" type="button">+</button>
-            </div>
-        </div>
-        <div class="right-side">
-            <form id="input-form">
-                <label for="charts">Select a chart:</label>
-                <select name="charts" id="charts">
-                    <option value="hot-100">Hot 100</option>
-                    <option value="billboard-200">Billboard 200</option>
-                    <option value="artist-100">Artist 100</option>
-                    <option value="billboard-global-200">Billboard Global 200</option>
-                </select>
-                <label for="display-number">Number to display:</label>
-                <select name="display-number" id="display-number">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                <input type="submit" id="chartSubmit" value="Submit"/>
-            </form>
-            <div id="song-display" class="song-display">  
-            </div>
+        <form class="input-form" id="input-form">
+            <label for="charts">Select a chart:</label>
+            <select name="charts" id="charts">
+                <option value="hot-100">Hot 100</option>
+                <option value="billboard-200">Billboard 200</option>
+                <option value="artist-100">Artist 100</option>
+                <option value="billboard-global-200">Billboard Global 200</option>
+            </select>
+            <label for="display-number">Number to display:</label>
+            <select name="display-number" id="display-number">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <input type="submit" id="chartSubmit" value="Submit"/>
+        </form>
+        <div id="song-display" class="song-display">  
+            <p>Please select a chart.</p>
         </div>
     </div>
    

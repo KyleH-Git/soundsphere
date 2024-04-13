@@ -30,7 +30,6 @@ function savePlaylist(playlist){
 function selectPlaylist(){
     savedPlaylistEl.on('click', '.playlist-card', function(event){
         currentPlaylistEl = $(this).attr('data-playlist-id');
-        console.log(currentPlaylistEl);
     });
 }
 
@@ -73,7 +72,7 @@ function displayPlaylist(){
         const deleteBtn = $('<button>')
         deleteBtn.text("Delete");
         deleteBtn.attr('data-playlist-id', i);
-        deleteBtn.text("Delete");
+        deleteBtn.attr('class', 'card-btn');
         deleteBtn.on('click', deletePlaylist);
 
         listDisplay.append(listName, listGenre, listDate, deleteBtn);
@@ -95,7 +94,7 @@ function displaySong(playlist){
     songDisplayEl.empty();
     playlist.songs.forEach(song => {
         const songCard = $('<div>');
-        songCard.attr('class', 'card');
+        songCard.attr('class', 'song-card');
 
         const title = $('<h3>');
         title.text(song.title);
@@ -105,6 +104,7 @@ function displaySong(playlist){
         album.text(song.album);
         const deleteBtn = $('<button>');
         deleteBtn.text("Delete");
+        deleteBtn.attr('class', 'card-btn');
         deleteBtn.on('click', deleteSong);
         songCard.append(title, artist, album, deleteBtn);
         contentPlaylistEl.append(songCard);
@@ -148,9 +148,9 @@ function displaySongs(){
                                 response.json().then(function (data) {
                                     song.album = data.song.album.name;
                                     const songCard = $('<div>');
-                                    songCard.attr('class', 'card');
+                                    songCard.attr('class', 'song-card');
 
-                                    const songTitle = $('<p>');
+                                    const songTitle = $('<h3>');
                                     songTitle.text(song.title);
                                     
                                     const songArtist = $('<p>');
@@ -161,6 +161,7 @@ function displaySongs(){
                                  
                                     const addSong = $('<button>');
                                     addSong.text('Add Song');
+                                    addSong.attr('class', 'card-btn');
                                     addSong.attr('data-song-id', i);
                                     songCard.append(songTitle, songArtist, songAlbum, addSong);
                                     songDisplayEl.append(songCard);
@@ -172,9 +173,7 @@ function displaySongs(){
                 }
             });
         }, 50);           
-        });     
-        console.log(songList);
-        
+        });        
     }
 }
 
@@ -192,7 +191,6 @@ function saveSongs(songs){
 //add song function
 function addSong(){
     //if there is a currently selected playlist
-    console.log(currentPlaylistEl);
     if(currentPlaylistEl !== null){
         //add the clicked song to the song element of that playlist
         const savedSongs = getSavedSongs();
@@ -202,7 +200,6 @@ function addSong(){
             artist: savedSongs[songIndex].artist,
             album: savedSongs[songIndex].album,
         }
-        console.log(newSong);
         const savedPlaylist = getSavedPlaylist();
         savedPlaylist[currentPlaylistEl].songs.push(newSong);
         savePlaylist(savedPlaylist);

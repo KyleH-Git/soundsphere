@@ -1,0 +1,54 @@
+.card-btn{
+    border-radius: 10px;
+    border: white 1px solid;
+    color: white;
+    background-color: black;
+}
+
+.delete-song-btn{
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
+.song-card{
+    background-color: gray;
+    width:fit-content;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
+.song-name{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playlist-card{
+    background-color: gray;
+    width:fit-content;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+    border: white 1px solid;
+}
+
+.playlist-display{
+    border: #333232 5px solid;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #333232;
+    padding: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playlist-modal{
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    border: white 1px solid;
+}

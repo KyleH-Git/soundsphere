@@ -73,7 +73,6 @@ searchButtonEl.on('click', handleLyricFetch);
 
 searchBarEl.on('change', function(){   
     const hasText = searchBarEl.val();
-    console.log(hasText);
     if(hasText){
         searchBarEl.parent().attr('class', 'open-search-bar search-bar');
     }

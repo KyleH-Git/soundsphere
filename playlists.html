@@ -5,28 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/lyrics.css">
+    <link rel="stylesheet" href="./assets/css/playlists.css">
     <title>SoundSphere</title>
 </head>
 <body>
-    <header class="header-logo">
+
+    <header>
+        <div class="filler"></div>
         <a class="soundsphere" href="./index.html">SoundSphere</a>
         <div class="dropdown show">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>                
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="./playlists.html">Playlists</a>
+                <a class="dropdown-item" href="./index.html">Billboard</a>
                 <a class="dropdown-item" href="./lyrics.html">Lyrics</a>
             </div>
         </div>
     </header>
 
     <div class="main text-center">
-        <div class="search-bar">
-            <input id="search-content" type="search" placeholder="Search...">
-                <img src="./assets/icons/search.svg" class="fa fa-search" alt="search icon" width="36" height="36">
-            </input>
-        </div>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#playlistModal">
+        <button type="button" class="playlist-modal btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#playlistModal">
             Create New Playlist
         </button>
         
@@ -64,7 +62,7 @@
         
         <div class="search-list">
             <div id="song-name" class="song-name"></div>
-            <div id="playlist-display" class="lyrics"></div>
+            <div id="playlist-display" class="playlist-display"></div>
         </div>
     </div>
         

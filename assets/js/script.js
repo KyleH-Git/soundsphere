@@ -24,7 +24,6 @@ function handleBBFetch(event){
     fetch(url, options).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data.chart.entries[0].title);
                 for(i=0; i < displayNum; i++){
                     const songCard = $('<div>');
                     songCard.attr('class', 'card');
@@ -79,8 +78,6 @@ function addSong(event){
     };
 
     songs.push(song);
-    console.log(song.title);
-    console.log(song.artist);
     saveSong(songs);
 }
 
@@ -89,9 +86,7 @@ chartSubmitEl.on('submit', handleBBFetch);
 songDisplayEl.on('click', 'button', addSong);
 
 searchBarEl.on('change', function(){ 
-    console.log("hello");
     const hasText = searchBarEl.val();
-    console.log(hasText);
     if(hasText){
         searchBarEl.parent().attr('class', 'open-search search');
     }
