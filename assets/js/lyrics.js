@@ -1,6 +1,6 @@
 //grab artist, title, and lyric elements from lyrics.html
 const searchResultEl = $('.song-name');
-const searchButtonEl = $('#search-button');
+const searchButtonEl = $('.fa-search');
 const searchBarEl = $('#search-content');
 const displayEl = $('.lyrics');
 

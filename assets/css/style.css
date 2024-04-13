@@ -1,31 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-    position: relative;
-}
-
 body {
     background-color: black;
 }
 
-label{
-    color: white;
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
 }
 
 /* header */
 
-
 .header {
+    width: 100%;
     height: 80px;
 }
 
@@ -35,7 +23,7 @@ label{
     justify-content: center;
 }
 
-.soundsphere {
+.soundsphere{
     color: #fff;
     font-size: 50px;
 }
@@ -43,8 +31,6 @@ label{
 /* main */
 
 .main {
-    height: auto;
-    margin: 0 auto;
     display: flex;
 }
 
@@ -52,65 +38,6 @@ label{
 
 .left-side {
     width: 25%;
-    height: auto;
-}
-
-.search{
-    position: relative;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    transition: all 1s;
-    width: 50px;
-    height: 50px;
-    background: white;
-    box-sizing: border-box;
-    border-radius: 25px;
-    border: 4px solid white;
-    padding: 5px;
-}
-
-input#search-content{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 42.5px;
-    line-height: 30px;
-    outline: 0;
-    border: 0;
-    display: none;
-    font-size: 1em;
-    border-radius: 20px;
-    padding: 0 20px;
-}
-
-.fa{
-    box-sizing: border-box;
-    padding: 10px;
-    width: 42.5px;
-    height: 42.5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 50%;
-    color: #000;
-    text-align: center;
-    font-size: 1.2em;
-    transition: all 1s;
-}
-
-.search:hover, .open-search{
-    width: 330px !important;
-    cursor: pointer;
-}
-
-.search:hover input, .open-search input{
-    display: block;
-}
-
-.search:hover .fa{
-    background: #000;
-    color: white;
 }
 
 /* my library */
@@ -122,15 +49,15 @@ input#search-content{
     background-color: #333232;
     padding: 10px 10px 10px 10px;
     padding-bottom: 500px;
-   }
+}
    
    /* nav-playlist */
    
 .nav-playlist {
        display: inline;
-   }
+}
    
-   /* playlist */
+/* playlist */
    
 .playlist-hover {
     width: 150px;
@@ -260,8 +187,6 @@ input#search-content{
 
 .right-side {
     width: 100%;
-    height: auto;
-
 }
 
 .test {
