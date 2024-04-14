@@ -46,7 +46,7 @@ function selectPlaylist(){
             songContainerTitle.text("Songs in: " + lists[currentPlaylistEl].name);
             songDivEl.append(songContainerTitle);
             const savedSongs = lists[currentPlaylistEl].songs;
-            savedSongs.forEach(song=> {
+            savedSongs.forEach((song, i)=> {
                 const songCard = $('<div>');
                 songCard.attr('class', 'card-obj');
                 const title = $('<h3>');
@@ -55,11 +55,15 @@ function selectPlaylist(){
                 artist.text(song.artist);
                 const album = $('<p>');
                 album.text(song.album);
-                songCard.append(title, artist, album, );
+                const deleteBtn = $('<button>')
+                deleteBtn.text("Delete");
+                deleteBtn.attr('data-song-id', i);
+                deleteBtn.attr('class', 'card-btn');
+                songCard.append(title, artist, album, deleteBtn);
                 songDivEl.append(songCard);
             });
         }else{
-            songDivEl.attr('class', 'hidden');
+            songDivEl.attr('class', 'song-display hidden');
             playlistEl.css('margin', '0 25%');
         }
     });
@@ -271,5 +275,14 @@ songDisplayEl.on('click', 'button', addSong);
 
 
 //event listener for delete song from playlist - attach to parent only activate if clicked 
+// songDivEl.on('click', 'button', function(){
+//     const lists = getSavedPlaylist();
+//     const songID = $(this).attr('data-song-id');
+//     const savedSongs = lists[currentPlaylistEl].songs;
+//     savedSongs.splice(songID, 1);
+//     savePlaylist(lists);
+    //display songs from list back into song-display
+    //should break out display loop from selectPlaylist into it's own function to call here
+//});
 
 //event listener for lyrics button on current playlist songs - attach to parent only activate if clicked 

@@ -17,6 +17,7 @@
     padding: 1rem;
     border-radius: 10px;
     border: white 1px solid;
+    min-width: 200px;
 }
 
 .card-obj:hover {
