@@ -183,7 +183,6 @@ function displaySongs(){
                          fetch(url, options).then(function (response) {
                             if (response.ok) {
                                 response.json().then(function (data) {
-                                    song.album = data.song.album.name;
                                     const songCard = $('<div>');
                                     songCard.attr('class', 'card-obj');
 
@@ -194,7 +193,7 @@ function displaySongs(){
                                     songArtist.text(song.artist);
 
                                     const songAlbum = $('<p>');
-                                    songAlbum.text(song.album);
+                                    songAlbum.text(data.song.album.name);
                                  
                                     const addSong = $('<button>');
                                     addSong.text('Add Song');

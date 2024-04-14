@@ -83,7 +83,7 @@ function addSong(event){
     const songs = getSong();
     song = {
         title: $(event.target).siblings().eq(0).text().replace(/\"/g, ''), 
-        artist: $(event.target).siblings().eq(2).text().replace("Artist: ", ""),
+        artist: $(event.target).siblings().eq(1).text().replace("Artist: ", ""),
         album: '',
     };
 
