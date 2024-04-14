@@ -23,49 +23,57 @@
     </header>
 
     <div class="main text-center">
-        <!-- Button trigger modal -->
-        <button type="button" class="playlist-modal btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#playlistModal">
-            Create New Playlist
-        </button>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Create your Playlist!</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="playlist-name" class="form-label mx1 ">Playlist Name: </label>
-                        <input type="text" class="form-control" id="playlist-name" placeholder="Playlist">
-                        </div>  
+        <div class="playlist-nav">
+            <!-- Button trigger modal -->
+            <button type="button" class="playlist-modal btn btn-primary mt-5" data-bs-toggle="modal" data-bs-target="#playlistModal">
+                Create New Playlist
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create your Playlist!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="playlist-name" class="form-label mx1 ">Playlist Name: </label>
+                            <input type="text" class="form-control" id="playlist-name" placeholder="Playlist">
+                            </div>  
 
-                        <select class="form-select" id="form-select" aria-label="Genre">
-                        <option selected>Select Genre</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Modern Rock">Modern Rock</option>
-                        <option value="Classic">Classic Rock</option>
-                        <option value="Rap">Rap</option>
-                        <option value="Country">Country</option>
-                        <option value="Classical">Classical</option>
-                        </select>
+                            <select class="form-select" id="form-select" aria-label="Genre">
+                            <option selected>Select Genre</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Modern Rock">Modern Rock</option>
+                            <option value="Classic">Classic Rock</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Country">Country</option>
+                            <option value="Classical">Classical</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" id="playlist-create" data-bs-dismiss="modal" class="btn btn-primary">Create</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" id="playlist-create" data-bs-dismiss="modal" class="btn btn-primary">Create</button>
                 </div>
             </div>
+            <div class="current-list">
+                <p>Current playlist: None</p>
             </div>
         </div>
-        <div class="current-list">
-            <p>Current playlist: None</p>
-        </div>
-        
-        <div class="search-list">
-            <div id="song-name" class="song-name"></div>
-            <div id="playlist-display" class="playlist-display"></div>
+
+        <div class="playlist-card">
+            <div class="song-display hidden">
+
+            </div>
+
+            <div class="playlist-search">
+                <div id="song-name" class="song-name"></div>
+                <div id="playlist-display" class="playlist-display"></div>
+            </div>
         </div>
     </div>
         

@@ -61,3 +61,28 @@
     border-radius: 10px;
     border: white 1px solid;
 }
+
+.song-display{
+    float: left;
+    width:fit-content;
+    border: #333232 5px solid;
+    margin: 15px 0% 100% 10%;
+    border-radius: 10px;
+    background-color: #333232;
+    padding: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.playlist-search{
+    border: #333232 5px solid;
+    margin: 0 25%;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}

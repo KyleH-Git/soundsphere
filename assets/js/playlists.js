@@ -9,6 +9,8 @@ const savedPlaylistEl = $('#playlist-display');
 const contentPlaylistEl = $('#content-list');
 const modalEl = $('#playlist-create');
 const songDisplayEl = $('#song-name');
+const songDivEl = $('.song-display');
+const playlistEl = $('.playlist-search')
 
 //get playlists from storage function, called on page load
 function getSavedPlaylist(){
@@ -32,8 +34,34 @@ function selectPlaylist(){
     savedPlaylistEl.on('click', '.card-obj', function(event){
         currentPlaylistEl = $(this).attr('data-playlist-id');
         const lists = getSavedPlaylist();
-        currentListEl.text("Current Playlist: ");
-        currentListEl.append(lists[currentPlaylistEl].name);
+        currentListEl.empty();
+        currentListEl.text("Current Playlist: " + lists[currentPlaylistEl].name);
+        if(lists[currentPlaylistEl].songs.length > 0){
+            songDivEl.removeClass('hidden');
+            songDivEl.empty();
+            playlistEl.css('margin', '15px 5% 100% 40%');
+            songDivEl.css('margin', '15px 10% 100% 5%');
+            const songContainerTitle = $('<h2>')
+            songContainerTitle.attr('class', 'current-list');
+            songContainerTitle.text("Songs in: " + lists[currentPlaylistEl].name);
+            songDivEl.append(songContainerTitle);
+            const savedSongs = lists[currentPlaylistEl].songs;
+            savedSongs.forEach(song=> {
+                const songCard = $('<div>');
+                songCard.attr('class', 'card-obj');
+                const title = $('<h3>');
+                title.text(song.title);
+                const artist = $('<p>');
+                artist.text(song.artist);
+                const album = $('<p>');
+                album.text(song.album);
+                songCard.append(title, artist, album, );
+                songDivEl.append(songCard);
+            });
+        }else{
+            songDivEl.attr('class', 'hidden');
+            playlistEl.css('margin', '0 25%');
+        }
     });
 }
 
@@ -62,7 +90,10 @@ function createPlaylist(){
 function displayPlaylist(){
     const playlists = getSavedPlaylist();
     savedPlaylistEl.empty();
-
+    const savedListTitle = $('<h2>');
+    savedListTitle.text("Saved Playlists");
+    savedListTitle.attr('class', 'current-list');
+    savedPlaylistEl.append(savedListTitle);
     playlists.forEach((list, i) => {
         const listDisplay = $('<div>');
         listDisplay.attr('class', 'card-obj');
@@ -105,11 +136,7 @@ function displaySong(playlist){
         artist.text(song.artist);
         const album = $('<p>');
         album.text(song.album);
-        const deleteBtn = $('<button>');
-        deleteBtn.text("Delete");
-        deleteBtn.attr('class', 'card-btn');
-        deleteBtn.on('click', deleteSong);
-        songCard.append(title, artist, album, deleteBtn);
+        songCard.append(title, artist, album);
         contentPlaylistEl.append(songCard);
     });
 }
@@ -123,9 +150,12 @@ function getSongs(){
 //display songs from local storage
 function displaySongs(){
     const songList = getSongs();
-
     //if there are songs, loop through the array and find album name from stored title + artist
     if(songList !== null){
+        const savedSongsTitle = $('<h2>');
+        savedSongsTitle.text("Unassigned Songs");
+        savedSongsTitle.attr('class', 'current-list');
+        songDisplayEl.append(savedSongsTitle);
         songList.forEach((song, i)=> {
            
             const userSearch = song.title + " " + song.artist;

@@ -57,7 +57,6 @@ function handleLyricFetch(){
                         songCard.append(title, artist);
                         searchResultEl.append(songCard);
                         displayEl.append(data.lyrics.lyrics.body.html);
-                    
                     });
                 }
             });

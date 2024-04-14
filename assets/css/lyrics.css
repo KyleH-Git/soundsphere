@@ -22,7 +22,6 @@ header {
     justify-content: space-between;
 }
 
-
 header .dropdown{
     padding-right: 1rem;
     padding-bottom: 2.5rem;
@@ -127,7 +126,6 @@ input{
     border: #333232 5px solid;
     margin: 15px 25%;
     border-radius: 10px;
-
 }
 
 /* song name */
