@@ -3,43 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/lyrics.css">
     <title>SoundSphere</title>
 </head>
 <body>
-    <div class="wrapper">
-        <header class="header">
-            <div class="header-line">
-                <div class="header-logo">
-                    <a class="soundsphere" href="./index.html">SoundSphere</a>
-                </div>
-            </div>
-        </header>
-        <div class="main">
-            <div class="search-bar">
-                <input id="search-content" type="search" placeholder="Search...">
-                    <i id ="search-button" class="fa fa-search"></i>
-            </div>
-            <div class="search-list">
-                <div class="song-name"></div>
-                <div class="lyrics"></div>
+
+    <header>
+        <div class="filler"></div>
+        <a class="soundsphere" href="./index.html">SoundSphere</a>
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>                
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="./index.html">Billboard</a>
+                <a class="dropdown-item" href="./playlists.html">Playlists</a>
             </div>
         </div>
-        <footer></footer>
+    </header>
+
+    <div class="main">
+        <div class="search-bar">
+            <input id="search-content" type="search" placeholder="Search...">
+                <img src="./assets/icons/search.svg" class="fa fa-search" alt="search icon" width="36" height="36">
+            </input>
+        </div>
+        <div class="search-list">
+            <div class="song-name">
+                <h3>Song Name</h3>
+            </div>
+            <div class="lyrics">
+                <h4>Lyrics</h4>
+            </div>
+        </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-      crossorigin="anonymous"
-    ></script>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./assets/js/lyrics.js"></script>
 </body>
 </html>

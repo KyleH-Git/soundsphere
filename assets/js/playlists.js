@@ -1,6 +1,7 @@
 //grab create new playlist button
 const newPlaylistEl = $('#new-list-btn');
 //grab current playlist display div
+const currentListEl = $('.current-list');
 let currentPlaylistEl = null;
 //grab currently saved playlist div
 const savedPlaylistEl = $('#playlist-display');
@@ -8,6 +9,8 @@ const savedPlaylistEl = $('#playlist-display');
 const contentPlaylistEl = $('#content-list');
 const modalEl = $('#playlist-create');
 const songDisplayEl = $('#song-name');
+const songDivEl = $('.song-display');
+const playlistEl = $('.playlist-search')
 
 //get playlists from storage function, called on page load
 function getSavedPlaylist(){
@@ -28,9 +31,41 @@ function savePlaylist(playlist){
 }
 
 function selectPlaylist(){
-    savedPlaylistEl.on('click', '.playlist-card', function(event){
+    savedPlaylistEl.on('click', '.card-obj', function(event){
         currentPlaylistEl = $(this).attr('data-playlist-id');
-        console.log(currentPlaylistEl);
+        const lists = getSavedPlaylist();
+        currentListEl.empty();
+        currentListEl.text("Current Playlist: " + lists[currentPlaylistEl].name);
+        if(lists[currentPlaylistEl].songs.length > 0){
+            songDivEl.removeClass('hidden');
+            songDivEl.empty();
+            playlistEl.css('margin', '15px 5% 100% 40%');
+            songDivEl.css('margin', '15px 10% 100% 5%');
+            const songContainerTitle = $('<h2>')
+            songContainerTitle.attr('class', 'current-list');
+            songContainerTitle.text("Songs in: " + lists[currentPlaylistEl].name);
+            songDivEl.append(songContainerTitle);
+            const savedSongs = lists[currentPlaylistEl].songs;
+            savedSongs.forEach((song, i)=> {
+                const songCard = $('<div>');
+                songCard.attr('class', 'card-obj');
+                const title = $('<h3>');
+                title.text(song.title);
+                const artist = $('<p>');
+                artist.text(song.artist);
+                const album = $('<p>');
+                album.text(song.album);
+                const deleteBtn = $('<button>')
+                deleteBtn.text("Delete");
+                deleteBtn.attr('data-song-id', i);
+                deleteBtn.attr('class', 'card-btn');
+                songCard.append(title, artist, album, deleteBtn);
+                songDivEl.append(songCard);
+            });
+        }else{
+            songDivEl.attr('class', 'song-display hidden');
+            playlistEl.css('margin', '0 25%');
+        }
     });
 }
 
@@ -59,10 +94,13 @@ function createPlaylist(){
 function displayPlaylist(){
     const playlists = getSavedPlaylist();
     savedPlaylistEl.empty();
-
+    const savedListTitle = $('<h2>');
+    savedListTitle.text("Saved Playlists");
+    savedListTitle.attr('class', 'current-list');
+    savedPlaylistEl.append(savedListTitle);
     playlists.forEach((list, i) => {
         const listDisplay = $('<div>');
-        listDisplay.attr('class', 'playlist-card');
+        listDisplay.attr('class', 'card-obj');
         listDisplay.attr('data-playlist-id', i)
         const listName = $('<h3>');
         listName.text(list.name);
@@ -73,7 +111,7 @@ function displayPlaylist(){
         const deleteBtn = $('<button>')
         deleteBtn.text("Delete");
         deleteBtn.attr('data-playlist-id', i);
-        deleteBtn.text("Delete");
+        deleteBtn.attr('class', 'card-btn');
         deleteBtn.on('click', deletePlaylist);
 
         listDisplay.append(listName, listGenre, listDate, deleteBtn);
@@ -95,18 +133,14 @@ function displaySong(playlist){
     songDisplayEl.empty();
     playlist.songs.forEach(song => {
         const songCard = $('<div>');
-        songCard.attr('class', 'card');
-
+        songCard.attr('class', 'card-obj');
         const title = $('<h3>');
         title.text(song.title);
         const artist = $('<p>');
         artist.text(song.artist);
         const album = $('<p>');
         album.text(song.album);
-        const deleteBtn = $('<button>');
-        deleteBtn.text("Delete");
-        deleteBtn.on('click', deleteSong);
-        songCard.append(title, artist, album, deleteBtn);
+        songCard.append(title, artist, album);
         contentPlaylistEl.append(songCard);
     });
 }
@@ -120,9 +154,12 @@ function getSongs(){
 //display songs from local storage
 function displaySongs(){
     const songList = getSongs();
-
     //if there are songs, loop through the array and find album name from stored title + artist
     if(songList !== null){
+        const savedSongsTitle = $('<h2>');
+        savedSongsTitle.text("Unassigned Songs");
+        savedSongsTitle.attr('class', 'current-list');
+        songDisplayEl.append(savedSongsTitle);
         songList.forEach((song, i)=> {
            
             const userSearch = song.title + " " + song.artist;
@@ -146,21 +183,21 @@ function displaySongs(){
                          fetch(url, options).then(function (response) {
                             if (response.ok) {
                                 response.json().then(function (data) {
-                                    song.album = data.song.album.name;
                                     const songCard = $('<div>');
-                                    songCard.attr('class', 'card');
+                                    songCard.attr('class', 'card-obj');
 
-                                    const songTitle = $('<p>');
+                                    const songTitle = $('<h3>');
                                     songTitle.text(song.title);
                                     
                                     const songArtist = $('<p>');
                                     songArtist.text(song.artist);
 
                                     const songAlbum = $('<p>');
-                                    songAlbum.text(song.album);
+                                    songAlbum.text(data.song.album.name);
                                  
                                     const addSong = $('<button>');
                                     addSong.text('Add Song');
+                                    addSong.attr('class', 'card-btn');
                                     addSong.attr('data-song-id', i);
                                     songCard.append(songTitle, songArtist, songAlbum, addSong);
                                     songDisplayEl.append(songCard);
@@ -171,10 +208,8 @@ function displaySongs(){
                     });
                 }
             });
-        }, 5000);           
-        });     
-        console.log(songList);
-        
+        }, 50);           
+        });        
     }
 }
 
@@ -192,7 +227,6 @@ function saveSongs(songs){
 //add song function
 function addSong(){
     //if there is a currently selected playlist
-    console.log(currentPlaylistEl);
     if(currentPlaylistEl !== null){
         //add the clicked song to the song element of that playlist
         const savedSongs = getSavedSongs();
@@ -202,7 +236,6 @@ function addSong(){
             artist: savedSongs[songIndex].artist,
             album: savedSongs[songIndex].album,
         }
-        console.log(newSong);
         const savedPlaylist = getSavedPlaylist();
         savedPlaylist[currentPlaylistEl].songs.push(newSong);
         savePlaylist(savedPlaylist);
@@ -241,5 +274,14 @@ songDisplayEl.on('click', 'button', addSong);
 
 
 //event listener for delete song from playlist - attach to parent only activate if clicked 
+// songDivEl.on('click', 'button', function(){
+//     const lists = getSavedPlaylist();
+//     const songID = $(this).attr('data-song-id');
+//     const savedSongs = lists[currentPlaylistEl].songs;
+//     savedSongs.splice(songID, 1);
+//     savePlaylist(lists);
+    //display songs from list back into song-display
+    //should break out display loop from selectPlaylist into it's own function to call here
+//});
 
 //event listener for lyrics button on current playlist songs - attach to parent only activate if clicked 
